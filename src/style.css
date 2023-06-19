@@ -1,0 +1,79 @@
+#weather-app {
+  margin: 30px auto;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+#description:first-letter {
+  text-transform: capitalize;
+}
+#feels-like:first-letter {
+  text-transform: capitalize;
+}
+#date {
+  display: block;
+  text-align: left;
+  font-family: Sora;
+}
+
+#city {
+  display: block;
+  text-align: center;
+  font-size: 25pt;
+  font-family: Sora;
+}
+#temperature {
+  display: block;
+  text-align: right;
+  font-size: 30pt;
+  font-family: Sora;
+  padding: 0;
+  margin: 0;
+}
+strong {
+  font-family: Sora;
+}
+span {
+  display: block;
+  text-align: left;
+  font-size: 10pt;
+  font-family: Sora;
+  padding: 0;
+  margin: 0;
+}
+#description {
+  display: block;
+  text-align: center;
+  font-size: 15pt;
+  font-family: Sora;
+}
+#icon {
+  display: block;
+  text-align: center;
+  font-size: 80pt;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+#wind {
+  display: block;
+  text-align: center;
+  font-family: Sora;
+}
+#humidity {
+  display: block;
+  text-align: center;
+  font-family: Sora;
+}
+#feels-like {
+  display: block;
+  text-align: center;
+  font-family: Sora;
+}
+small {
+  display: block;
+  text-align: center;
+  margin: 50px auto;
+  font-family: Sora;
+}
