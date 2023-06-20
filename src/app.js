@@ -22,6 +22,26 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = `
+        <div class="row">
+            <div class="col-3">
+              <div id="forecast-date">Mon</div>
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                alt=""
+                width="50"
+              />
+              <div class="forecast-temperatures">
+                <span id="forecast-max">20˚</span
+                ><span id="forecast-min">10˚</span>
+              </div>
+            </div>
+          </div>`;
+}
+
 function displayTemp(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -88,3 +108,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Toronto");
+displayForecast();
