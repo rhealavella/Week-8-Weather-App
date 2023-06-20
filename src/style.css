@@ -77,3 +77,24 @@ small {
   margin: 50px auto;
   font-family: Sora;
 }
+
+#forecast {
+  margin: 20;
+  text-align: center;
+}
+
+.forecast-temperatures {
+  display: block;
+  text-align: center;
+}
+.forecast-max {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.forecast-min {
+  display: block;
+  font-size: 10px;
+  text-align: center;
+}
