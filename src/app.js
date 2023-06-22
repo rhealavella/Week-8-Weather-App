@@ -22,7 +22,8 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Mon", "Tues", "Wed", "Thu"];
@@ -48,7 +49,14 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
+function getForecast(city) {
+  let key = "e9ebt40ac8468b03ff07a7b93c22oc3b";
+  let units = "metric";
+  let query = city;
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${key}&units=${units}`;
+  console.log(url);
+  axios.get(url).then(displayForecast);
+}
 function displayTemp(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -76,6 +84,8 @@ function displayTemp(response) {
   descriptionElement.innerHTML = response.data.condition.description;
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+
+  getForecast(response.data.city);
 }
 
 function search(query) {
