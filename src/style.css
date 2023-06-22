@@ -79,21 +79,35 @@ small {
 }
 
 #forecast {
-  margin: 20;
+  margin: 0 auto;
   text-align: center;
+  display: block;
+  border-radius: 10px;
+  border-color: black;
+}
+#forecast-date {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#forecast-icon {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .forecast-temperatures {
   display: block;
   text-align: center;
 }
-.forecast-max {
+#forecast-max {
   display: block;
   font-size: 10px;
   font-weight: bold;
   text-align: center;
 }
-.forecast-min {
+#forecast-min {
   display: block;
   font-size: 10px;
   text-align: center;

@@ -24,14 +24,17 @@ function formatDate(timestamp) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-
-  forecastElement.innerHTML = `
-        <div class="row">
-            <div class="col-3">
-              <div id="forecast-date">Mon</div>
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tues", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-3">
+              <div id="forecast-date">${day}</div>
               <img
                 src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
                 alt=""
+                id="forecast-icon"
                 width="50"
               />
               <div class="forecast-temperatures">
@@ -39,7 +42,11 @@ function displayForecast() {
                 ><span id="forecast-min">10˚</span>
               </div>
             </div>
-          </div>`;
+            
+          `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayTemp(response) {
