@@ -22,39 +22,51 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tues", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-3">
-              <div id="forecast-date">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+              <div id="forecast-date">${formatDay(forecastDay.time)}</div>
               <img
-                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+                src="${forecastDay.condition.icon_url}"
                 alt=""
                 id="forecast-icon"
                 width="50"
               />
               <div class="forecast-temperatures">
-                <span id="forecast-max">20˚</span
-                ><span id="forecast-min">10˚</span>
+                <span id="forecast-max">${Math.round(
+                  forecastDay.temperature.maximum
+                )}˚</span
+                ><span id="forecast-min">${Math.round(
+                  forecastDay.temperature.minimum
+                )}˚</span>
               </div>
             </div>
-            
           `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+
 function getForecast(city) {
   let key = "e9ebt40ac8468b03ff07a7b93c22oc3b";
   let units = "metric";
   let query = city;
   let url = `https://api.shecodes.io/weather/v1/forecast?query=${query}&key=${key}&units=${units}`;
-  console.log(url);
   axios.get(url).then(displayForecast);
 }
 function displayTemp(response) {
