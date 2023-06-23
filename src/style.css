@@ -84,6 +84,7 @@ small {
   display: block;
   border-radius: 10px;
   border-color: black;
+  padding-top: 20px;
 }
 #forecast-date {
   display: block;
